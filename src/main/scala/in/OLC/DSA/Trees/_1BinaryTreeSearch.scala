@@ -20,17 +20,20 @@ class BinaryTree[A](var root: Option[TreeNode[A]] = None) {
 object _1BinaryTreeSearch {
   def main(args: Array[String]): Unit = {
     val binaryTree = new BinaryTree[Int]()
-    val root = new TreeNode(5)
-    root.left = Some(new TreeNode(3))
+    val root = new TreeNode(6)
+    root.left = Some(new TreeNode(4))
     root.right = Some(new TreeNode(8))
-    root.left.get.left = Some(new TreeNode(2))
-    root.left.get.right = Some(new TreeNode(4))
+    root.left.get.left = Some(new TreeNode(3))
+    root.left.get.right = Some(new TreeNode(5))
+    root.left.get.right.get.left = Some(new TreeNode(1))
+
+
     root.right.get.left = Some(new TreeNode(7))
     root.right.get.right = Some(new TreeNode(9))
 
     binaryTree.root = Some(root)
 
-    val searchValue = 4
+    val searchValue = 17
     val isPresent = binaryTree.contains(searchValue)
 
     println(s"The element $searchValue is ${if (isPresent) "PRESENT" else "NOT PRESENT"} in the binary tree.")
